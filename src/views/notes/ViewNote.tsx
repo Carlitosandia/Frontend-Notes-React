@@ -4,6 +4,21 @@ import { useState, useEffect } from "react";
 import { getNoteById } from "@/api/NotesAPI";
 import AddCategoryModal from "@/components/categories/AddCategoryModal";
 import DeleteCategoryModal from "@/components/categories/DeleteCategoryModal";
+import { Category } from "@/types/index";
+
+type Note = {
+    id: number;
+    title: string;
+    content: string;
+    isArchived: boolean;
+    userId: string;
+    notesCategories?: {
+        categoryId: string; // ID de la categoría
+        category: {
+            title: string; // Nombre de la categoría
+        };
+    }[];
+};
 
 export default function ViewNote() {
     const location = useLocation();
@@ -35,19 +50,22 @@ export default function ViewNote() {
         return <p>Ha ocurrido un error al cargar la nota.</p>;
     }
 
-    function getAssociatedCategories(note, categories) {
-        const associatedCategoryIds = note.notesCategories.map((nc) => nc.categoryId);
+    function getAssociatedCategories(note: Note, categories: Category[]) {
+        const associatedCategoryIds = note.notesCategories?.map((nc) => nc.categoryId) || [];
         return categories.filter((category) =>
             associatedCategoryIds.includes(category.id)
         );
     }
-
-    function getUnassociatedCategories(note, categories) {
-        const associatedCategoryIds = note.notesCategories.map((nc) => nc.categoryId);
+    
+    function getUnassociatedCategories(note: Note, categories: Category[]) {
+        const associatedCategoryIds = note.notesCategories?.map((nc) => nc.categoryId) || [];
         return categories.filter(
             (category) => !associatedCategoryIds.includes(category.id)
         );
     }
+    
+    
+
 
     const note = noteData;
     const associatedCategories = getAssociatedCategories(note, categories);

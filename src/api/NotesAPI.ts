@@ -31,7 +31,7 @@ export async function createNote(formData : NoteFormData) {
 
 export async function getAllNotes() {
     try{
-        const id = "ad12ba26-be6d-4eb9-81c8-9b385ed56cfb";
+        const id = localStorage.getItem("USER_ID");
         const { data } = await axiosClient.get(`/notes/${id}`);
         const notes = dashBoardSchema.safeParse(data.notes);
         const categories = categoriesSchema.safeParse(data.categories);
@@ -83,7 +83,6 @@ type CategoryAPIType ={
 
 export async function addCategoryToNote({noteId, formData}: CategoryAPIType) {
     try{
-        console.log(noteId, formData);
         const { data } = await axiosClient.patch(`/notes/${noteId}/categories`, {categoryIds: formData});
         return data;
     }catch(error){

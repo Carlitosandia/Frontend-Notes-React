@@ -26,3 +26,9 @@ dist-ssr
 
 package-lock.json
 README.md
+
+main.tf
+terraform.tfstate
+variables.tf
+.terraform.lock.hcl
+.terraform/

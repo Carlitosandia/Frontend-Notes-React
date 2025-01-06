@@ -15,7 +15,8 @@ export default function DeleteCategoryModal({ categories }: categoriesProps) {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const modalCategory = queryParams.get('deleteCategory');
-    const noteId = queryParams.get('noteId');
+    const noteIdString = queryParams.get('noteId');
+    const noteId = noteIdString ? parseInt(noteIdString, 10) : null;
     const show = modalCategory ? true : false;
 
     const { mutate } = useMutation({
@@ -29,7 +30,12 @@ export default function DeleteCategoryModal({ categories }: categoriesProps) {
         }
     })
 
-    const handleDeleteCategory = (noteId: Note["id"], categoryIds: string[] | string) => {
+    const handleDeleteCategory = (noteId: Note["id"] | null, categoryIds: string[] | string) => {
+        if (noteId === null) {
+            toast.error("Invalid noteId");
+            return;
+        }
+
         const categoriesArray = Array.isArray(categoryIds) ? categoryIds : [categoryIds];
 
         const data = {
@@ -38,8 +44,6 @@ export default function DeleteCategoryModal({ categories }: categoriesProps) {
         };
         mutate(data);
     };
-
-
 
     return (
         <>

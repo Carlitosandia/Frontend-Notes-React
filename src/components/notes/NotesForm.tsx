@@ -12,7 +12,7 @@ export default function NotesForm({ register, errors }: NotesFormProps) {
         <>
             <div className="mb-5 space-y-3">
                 <label htmlFor="title" className="text-sm uppercase font-bold">
-                    Nombre de la nota
+                    Title
                 </label>
                 <input
                     id="title"
@@ -29,7 +29,7 @@ export default function NotesForm({ register, errors }: NotesFormProps) {
             </div>
             <div className="mb-5 space-y-3">
                 <label htmlFor="content" className="text-sm uppercase font-bold">
-                    Contenido de la nota
+                    content
                 </label>
                 <input
                     id="content"
