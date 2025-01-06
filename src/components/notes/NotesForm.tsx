@@ -18,9 +18,9 @@ export default function NotesForm({ register, errors }: NotesFormProps) {
                     id="title"
                     className="w-full p-3 border border-gray-200"
                     type="text"
-                    placeholder="Escribe el titulo de la nota"
+                    placeholder="Type the title of the note"
                     {...register("title", {
-                        required: "El nombre de la nota es obligatorio",
+                        required: "The title of the note is required",
                     })}
                 />
                 {errors.title && (
@@ -35,9 +35,9 @@ export default function NotesForm({ register, errors }: NotesFormProps) {
                     id="content"
                     className="w-full p-3 border border-gray-200"
                     type="text"
-                    placeholder="Escribe el contenido de la nota"
+                    placeholder="Type the content of the note"
                     {...register("content", {
-                        required: "El contenido de la nota es obligatorio",
+                        required: "The content of the note is required",
                     })}
                 />
                 {errors.content && (

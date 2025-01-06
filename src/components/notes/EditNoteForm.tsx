@@ -46,13 +46,13 @@ export default function EditeNoteForm({ data, noteId }: EditNoteFormProps) {
     return (
         <>
             <div className='max-w-3xl mx-auto'>
-                <h1 className="text-5xl font-black"> Editar la nota</h1>
-                <p className="text-2xl font-light text-gray-500 mt-5">Editar la nota</p>
+                <h1 className="text-5xl font-black"> Edit note</h1>
+                <p className="text-2xl font-light text-gray-500 mt-5">Edit the note</p>
                 <nav className="my-5">
                     <Link
                         className="bg-purple-400 hover:bg-purple-500 px-10 py-3 text-white text-xl font-bold cursor-pointer transitiion-colors"
                         to="/"
-                    >Volver a Dashboard</Link>
+                    >Back to Dashboard</Link>
                 </nav>
                 <form
                     className='mt-10 bg-white shadow-lg p-10 rounded-lg'

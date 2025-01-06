@@ -14,7 +14,7 @@ export default function EditNotes() {
 
     console.log(isLoading);
 
-    if (isLoading) return <p>Cargando...</p>
-    if (isError) return <p>Ha ocurrido un error</p>
+    if (isLoading) return <p>Loading...</p>
+    if (isError) return <p>There was an error</p>
     if (data) return <EditeNoteForm data={data} noteId={noteId} />
 }

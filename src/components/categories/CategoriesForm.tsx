@@ -18,7 +18,7 @@ export default function CategoriesForm ({ register, errors }: CategoriesFormProp
                     id="title"
                     className="w-full p-3 border border-gray-200"
                     type="text"
-                    placeholder="Write the category name"
+                    placeholder="Type the category name"
                     {...register("title", {
                         required: "The category name is required",
                     })}
