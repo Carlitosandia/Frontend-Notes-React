@@ -38,10 +38,10 @@ export default function DashBoard() {
 
   // Manejo de errores y carga después de los hooks
   if (isError) {
-    return <p>Ha ocurrido un error</p>;
+    return <p>There was a mistake</p>;
   }
   if (isLoading) {
-    return <p>Cargando...</p>;
+    return <p>Loading...</p>;
   }
   return (
     <>
@@ -53,7 +53,7 @@ export default function DashBoard() {
           }`}
           onClick={() => setFilter("all")}
         >
-          Todas
+          All
         </button>
         <button
           className={`px-5 py-2 font-bold rounded ${
@@ -61,7 +61,7 @@ export default function DashBoard() {
           }`}
           onClick={() => setFilter("unarchived")}
         >
-          No archivadas
+          Unarchived
         </button>
         <button
           className={`px-5 py-2 font-bold rounded ${
@@ -69,7 +69,7 @@ export default function DashBoard() {
           }`}
           onClick={() => setFilter("archived")}
         >
-          Archivadas
+          Archived
         </button>
         <button
           className={`px-5 py-2 font-bold rounded ${
@@ -77,14 +77,14 @@ export default function DashBoard() {
           }`}
           onClick={() => setFilter("category")}
         >
-          Por categoría
+          By category
         </button>
         {filter === "category" && (
           <select
             className="px-5 py-2 rounded border"
             onChange={(e) => setSelectedCategory(e.target.value)}
           >
-            <option value="">Selecciona una categoría</option>
+            <option value="">Select a category</option>
             {categories.map((category : any) => (
               <option key={category.id} value={category.id}>
                 {category.title}

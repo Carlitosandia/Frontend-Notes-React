@@ -10,9 +10,9 @@ export default function HeaderDashBoard({ categories = [] }: HeaderDashBoardProp
     const navigate = useNavigate();
     return (
         <>
-            <h1 className="text-5xl font-black">Mis notas</h1>
+            <h1 className="text-5xl font-black">My notes</h1>
             <p className="text-2xl font-light text-gray-500 mt-5">
-                Maneja y administra tus notas
+                Manage your notes
             </p>
             <nav className="my-5 flex gap-4">
                 <Link
